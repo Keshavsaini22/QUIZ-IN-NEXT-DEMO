@@ -5,7 +5,7 @@ function Home() {
     const theme = cookieStore.get('name')
     console.log('themeeeee: ', theme);
     return (
-        <div>Homexssssss</div>
+        <div>Homexssssskkkks</div>
     )
 }
 
