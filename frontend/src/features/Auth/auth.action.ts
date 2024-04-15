@@ -37,13 +37,10 @@ export const loginUser = createAsyncThunk(
     try {
       const res = await axios.post(`api/login`, data);
       const output = res.data;
-      cookiecreate("token", res.data.token)
-      cookiecreate("logged", "true")
-
-      localStorage.setItem("logged", "true");
-      localStorage.setItem("token", res.data.token);
+      await cookiecreate("token", res.data.token)
+      await cookiecreate("logged", "true")
+      await cookiecreate("userid", res.data.user._id)
       localStorage.setItem("user", JSON.stringify(res.data.user));
-      localStorage.setItem("userid", res.data.user._id);
       return output;
     } catch (error: any) {
       console.log('error.response.data.message: ', error.response.data.message);
