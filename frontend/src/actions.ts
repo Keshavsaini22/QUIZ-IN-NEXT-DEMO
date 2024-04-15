@@ -2,17 +2,11 @@
 
 import { cookies } from 'next/headers'
 
-export async function create(data: string) {
-    console.log('data: ', data);
-
-    cookies().set('name', 'lee')
-    // or
-    //   cookies().set('name', 'lee', { secure: true })
-    //   // or
-    //   cookies().set({
-    //     name: 'name',
-    //     value: 'lee',
-    //     httpOnly: true,
-    //     path: '/',
-    //   })
+export async function cookiecreate(name: string, value: any) {
+    cookies().set({
+        name: name,
+        value: value,
+        httpOnly: true,
+        path: '/',
+    })
 }

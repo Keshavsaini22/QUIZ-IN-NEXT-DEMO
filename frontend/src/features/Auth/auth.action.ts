@@ -1,8 +1,7 @@
-'use client'
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { loginType, logoutType, signinType } from "./auth.type";
-import { create } from "@/actions";
+import { cookiecreate } from "@/actions";
 
 interface signup {
   email: string;
@@ -38,7 +37,9 @@ export const loginUser = createAsyncThunk(
     try {
       const res = await axios.post(`api/login`, data);
       const output = res.data;
-      create("hello")
+      cookiecreate("token", res.data.token)
+      cookiecreate("logged", "true")
+
       localStorage.setItem("logged", "true");
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("user", JSON.stringify(res.data.user));
