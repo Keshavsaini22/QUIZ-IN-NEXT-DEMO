@@ -10,3 +10,8 @@ export async function cookiecreate(name: string, value: any) {
         path: '/',
     })
 }
+
+export async function getauthcookie(name: string) {
+    const value = cookies().has(name)
+    return value
+}

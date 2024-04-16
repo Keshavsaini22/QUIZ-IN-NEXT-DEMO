@@ -138,7 +138,7 @@ function SignUp() {
                 <Grid container justifyContent="flex-end">
                     <Grid item>
                         <Box component={'button'} onClick={() => {
-                            router.push('/login')
+                            router.push('/')
                         }} sx={{ background: 'none', color: 'rgb(49, 99, 190)', border: 'none', '&:hover': { textDecoration: 'underline', cursor: 'pointer' } }}>
                             {"Already have an account? Sign In"}
                         </Box>
