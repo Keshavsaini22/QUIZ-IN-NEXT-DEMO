@@ -1,5 +1,4 @@
 'use client'
-
 import { Avatar, Box, Button, Checkbox, Container, CssBaseline, FormControlLabel, Grid, Link, TextField, Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
@@ -7,7 +6,9 @@ import { useRouter } from 'next/navigation';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { toggleerror } from '@/features/Auth/auth.slice';
 import { loginUser } from '@/features/Auth/auth.action';
-
+import { getCookie } from 'cookies-next';
+import { getauthcookie } from '@/actions';
+import { getcookie } from '@/utils';
 function Login() {
     const router = useRouter()
     const dispatch = useAppDispatch();
@@ -24,14 +25,18 @@ function Login() {
         console.log('data: ', data);
         dispatch(loginUser(data));
     };
-    // var auth = document.cookie.match('logged')
-    // console.log('auth: ', auth);
-    // var auth: any = getauthcookie('logged')
+
+
+    // const auth: Promise<boolean> = getcookie()
+    // console.log('authffff: ', auth);
+    // if (auth) {  //due to this line main khabi bhi login vali state me nhi ja skda without logout
+    //     router.push('/home')
+    // }
     // useEffect(() => {
     //     if (auth) {  //due to this line main khabi bhi login vali state me nhi ja skda without logout
     //         router.push('/home')
     //     }
-    // }, [])
+    // }, [auth])
 
     useEffect(() => {
         if (logged) {

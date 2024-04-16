@@ -7,19 +7,11 @@ import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import { List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import TypographyText from '../TypographyText/page';
-// import { useAppDispatch } from '../../../app/hooks';
-// import TypographyText from '../../../components/TypograpgyText';
-// import { logoutUser } from '../../../features/Auth/auth.action';
+import { logoutUser } from '@/features/Auth/auth.action';
+import { useAppDispatch } from '@/store/hooks';
+
 function Sidebar() {
-    const [open, setOpen] = React.useState(true);
-    // const data: any = localStorage.getItem('user');
-    // const result = JSON.parse(data)
-    const handleClick = () => {
-        setOpen(!open);
-    };
-    // const role = result.role
-    // const navigate = useNavigate();
-    // const dispatch = useAppDispatch();
+    const dispatch = useAppDispatch();
     return (
         <Stack width={'100%'} sx={{ borderRight: ' 2px solid rgb(236, 237, 239)' }} gap={6}>
             <Stack direction={'row'} alignItems={'center'} justifyContent={'center'} gap={1} mt={6}>
@@ -47,11 +39,9 @@ function Sidebar() {
                         <ListItemText primary="Dashboard" />
                     </ListItemButton>
 
-                    <ListItemButton onClick={async () => {
+                    <ListItemButton onClick={() => {
                         console.log("handlelogout1")
-                        // const res = await dispatch(logoutUser())
-                        // if (res)
-                        // navigate('/')
+                        dispatch(logoutUser())
                     }}>
                         <ListItemIcon>
                             <LogoutOutlinedIcon />

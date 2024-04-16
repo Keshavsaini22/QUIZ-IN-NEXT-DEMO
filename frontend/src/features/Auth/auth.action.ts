@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { loginType, logoutType, signinType } from "./auth.type";
-import { cookiecreate } from "@/actions";
+import { cookiecreate, cookiedelete } from "@/actions";
 
 interface signup {
   email: string;
@@ -51,10 +51,10 @@ export const loginUser = createAsyncThunk(
 
 export const logoutUser = createAsyncThunk(logoutType, async () => {
   try {
-    localStorage.removeItem("logged");
-    localStorage.removeItem("token");
+    await cookiedelete("token")
+    await cookiedelete("logged")
+    await cookiedelete("userid")
     localStorage.removeItem("user");
-    localStorage.removeItem("userid");
   } catch (error: any) {
     return error.message;
   }
