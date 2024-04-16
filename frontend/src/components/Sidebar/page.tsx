@@ -29,9 +29,6 @@ function Sidebar() {
                         </ListItemIcon>
                         <ListItemText primary="Home" />
                     </ListItemButton>
-
-
-
                     <ListItemButton sx={{ color: 'black' }}>
                         <ListItemIcon>
                             <DashboardOutlinedIcon />
