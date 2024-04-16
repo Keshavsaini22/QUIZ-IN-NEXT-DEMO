@@ -8,11 +8,8 @@ async function Home() {
   }
 
   const dd = await delay(2000);
-  // const cookieStore = cookies()
-  // const theme = cookieStore.get('name')
-  // console.log('themeeeee: ', theme);
   return (
-    <div>Homexssssskkkks</div>
+    <div>HomexssssSSSSS</div>
   )
 }
 
